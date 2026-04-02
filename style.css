@@ -1,0 +1,248 @@
+:root {
+  --bg: #f4f7fb;
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-strong: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --line: rgba(15, 23, 42, 0.1);
+  --primary: #0f766e;
+  --primary-soft: rgba(15, 118, 110, 0.12);
+  --accent: #0ea5e9;
+  --shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(14, 165, 233, 0.14), transparent 30%),
+    radial-gradient(circle at top right, rgba(15, 118, 110, 0.14), transparent 32%),
+    var(--bg);
+  line-height: 1.65;
+}
+
+.container {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.hero {
+  padding: 88px 0 56px;
+}
+
+.eyebrow,
+.section-label {
+  display: inline-block;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+h1,
+h2,
+h3,
+p { margin-top: 0; }
+
+h1 {
+  max-width: 800px;
+  margin-bottom: 18px;
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+h2 {
+  font-size: clamp(1.9rem, 3vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin-bottom: 18px;
+}
+
+h3 {
+  font-size: 1.08rem;
+  margin-bottom: 10px;
+}
+
+.hero-copy {
+  max-width: 760px;
+  font-size: 1.16rem;
+  color: var(--muted);
+  margin-bottom: 30px;
+}
+
+.hero-metrics,
+.numbers-grid,
+.area-grid,
+.limits-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.hero-metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.numbers-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.area-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.limits-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-two {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.metric-card,
+.number-panel,
+.area-card,
+.limits-grid article,
+.table-wrap,
+.methodology,
+.footer {
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  border-radius: 24px;
+}
+
+.metric-card,
+.number-panel,
+.area-card,
+.limits-grid article {
+  padding: 24px;
+}
+
+.metric-label,
+.metric-note {
+  display: block;
+}
+
+.metric-label,
+.metric-note,
+.number-panel p,
+.area-card p,
+.footer p,
+.bullet-list,
+.limits-grid p,
+.intro p,
+.business p {
+  color: var(--muted);
+}
+
+.metric-card strong,
+.kpi {
+  display: block;
+  letter-spacing: -0.05em;
+}
+
+.metric-card strong {
+  margin: 8px 0 6px;
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+}
+
+.kpi {
+  margin-bottom: 14px;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.area-card ul,
+.bullet-list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.area-card.accent {
+  background: linear-gradient(180deg, rgba(15, 118, 110, 0.12), rgba(255, 255, 255, 0.9));
+}
+
+.section {
+  padding: 22px 0 56px;
+}
+
+.table-wrap {
+  overflow: auto;
+  padding: 8px;
+}
+
+.table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 820px;
+}
+
+th,
+td {
+  padding: 16px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+thead th {
+  font-size: 0.84rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.footer {
+  margin: 24px auto 36px;
+  padding: 18px 0;
+}
+
+.footer .container {
+  width: min(1120px, calc(100% - 32px));
+}
+
+@media (max-width: 960px) {
+  .hero-metrics,
+  .numbers-grid,
+  .area-grid,
+  .limits-grid,
+  .grid-two {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .numbers-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .area-grid,
+  .limits-grid,
+  .grid-two,
+  .hero-metrics {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 64px;
+  }
+
+  .numbers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metric-card,
+  .number-panel,
+  .area-card,
+  .limits-grid article {
+    padding: 20px;
+  }
+
+  th,
+  td {
+    padding: 13px;
+  }
+}
